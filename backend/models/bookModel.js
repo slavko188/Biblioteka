@@ -21,3 +21,6 @@ const BookSchema = new Schema({
 
 const BookModel = model("books-library", BookSchema);
 module.exports = BookModel;
+
+//MONGODB_URL= mongodb+srv://slavkorogy:y7P2T4tnwjkzUpTP@books.clxxz94.mongodb.net/?retryWrites=true&w=majority
+//PORT=3001
