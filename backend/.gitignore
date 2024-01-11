@@ -4,7 +4,7 @@ dist
 dist-ssr
 *.local
 
-git rm --cached .env
+*.env
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
