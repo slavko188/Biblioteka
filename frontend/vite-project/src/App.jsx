@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import ShowBook from "./pages/ShowBook";
+// import ShowBook from "./pages/ShowBook";
 import axios from "axios";
 import Home from "./pages/Home";
 
@@ -10,7 +10,6 @@ function App() {
   return (
     <div>
       <Home />
-      <ShowBook />
       <Outlet />
     </div>
   );
