@@ -13,8 +13,8 @@ function Home() {
   useEffect(() => {
     setLoading(true);
     BookService.getAllBooks()
-      .then((response) => {
-        setBooks(response.data.data);
+      .then((res) => {
+        setBooks(res.data.data);
         setLoading(false);
       })
       .catch((error) => {

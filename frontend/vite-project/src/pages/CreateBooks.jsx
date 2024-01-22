@@ -12,11 +12,7 @@ function CreateBooks() {
   const navigate = useNavigate();
 
   const handleSaveBook = () => {
-    const data = {
-      title,
-      author,
-      publishYear,
-    };
+    const data = { title, author, publishYear };
     setLoading(true);
 
     BookService.createNewBook(data)
@@ -26,7 +22,7 @@ function CreateBooks() {
       })
       .catch((err) => {
         setLoading(false);
-        alert("An error hapened");
+        alert("Greska");
         console.log(err);
       });
   };
