@@ -3,7 +3,7 @@ const router = express.Router();
 const BookModel = require("../models/bookModel");
 
 //Route for save new book
-router.post("/", async (req, res) => {
+router.post("/books", async (req, res) => {
   try {
     if (!req.body.title || !req.body.author || !req.body.publishYear) {
       return res.status(400).send({
