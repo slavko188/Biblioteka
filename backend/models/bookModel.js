@@ -1,6 +1,6 @@
-const { Schema, model } = require("mongoose");
+import mongoose from "mongoose";
 
-const BookSchema = new Schema({
+const BookSchema = mongoose.Schema({
   id: {
     type: Object,
     required: true,
@@ -23,8 +23,7 @@ const BookSchema = new Schema({
   },
 });
 
-const BookModel = model("booksLibrary", BookSchema);
-module.exports = BookModel;
+export const BookLibrary = mongoose.model("BookLibrary", BookSchema);
 
 //MONGODB_URL= mongodb+srv://slavkorogy:y7P2T4tnwjkzUpTP@books.clxxz94.mongodb.net/?retryWrites=true&w=majority
 //PORT=3001

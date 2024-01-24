@@ -1,13 +1,16 @@
-require("dotenv").config();
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+import dotenv from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import index from "./routes/index.js";
+
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use("/books", require("./routes"));
+app.use("/books", index);
+dotenv.config();
+
 mongoose
   .connect(process.env.MONGODB_URL)
   .then(() => {
