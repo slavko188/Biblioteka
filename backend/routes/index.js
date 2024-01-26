@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
       publishYear: req.body.publishYear,
     };
 
-    const saveBook = await BookLibrary.save(newBook);
+    const saveBook = await BookLibrary.create(newBook);
     return res.status(201).send(saveBook);
   } catch (error) {
     console.log(error.message);
@@ -56,7 +56,7 @@ router.get("/:id", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    if (!req.body.title || req.body.author || req.body.publishYear) {
+    if (!req.body.title || !req.body.author || !req.body.publishYear) {
       return res
         .status(400)
         .send({ message: "send all fields:title,author,publishYear" });
@@ -75,8 +75,8 @@ router.put("/:id", async (req, res) => {
 //Route for Delete a book
 router.delete("/:id", async (req, res) => {
   try {
-    const { id } = req.params;
-    const deleteBook = await BookLibrary.findByIdAndDelete(id);
+    //const { id } = req.params;
+    const deleteBook = await BookLibrary.deleteOne({ _id: req.params.id });
 
     if (!deleteBook) {
       return res.status(404).json({ message: "Book not faund" });
