@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const BookSchema = mongoose.Schema({
   id: {
     type: Object,
-    required: true,
+    required: false,
   },
   title: {
     type: String,
