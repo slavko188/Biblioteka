@@ -2,7 +2,7 @@ import { BookLibrary } from "../models/bookModel.js";
 
 export const DeleteBookControler = async (req, res) => {
   try {
-    const { id } = req.params;
+    // const { id } = req.params;
     const deleteBook = await BookLibrary.deleteOne({ _id: req.params.id });
 
     if (!deleteBook) {
