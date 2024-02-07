@@ -8,7 +8,6 @@ const UserSchema = mongoose.Schema({
   mobile: { type: String, default: "" },
   email: { type: String, required: [true, "Email is required"] },
   password: { type: String, required: [true, "Password is required"] },
-  description: { type: String, default: null },
   gender: { type: String, default: null },
   address: { type: String, default: null },
   role: { type: String, default: roles.USER },
