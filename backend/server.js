@@ -11,6 +11,7 @@ app.use(express.urlencoded());
 //Allow all origins with default of cors(*)
 app.use(cors());
 app.use("/books", index);
+app.use("/auth", index);
 dotenv.config();
 
 mongoose

@@ -1,4 +1,4 @@
-import { BookLibrary } from "../models/bookModel.js";
+import { BookLibrary } from "../../models/bookModel.js";
 
 export const UpdateBookControler = async (req, res) => {
   try {

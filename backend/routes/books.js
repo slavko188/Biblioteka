@@ -1,10 +1,10 @@
 import { Router } from "express";
 //Controlers
-import { BookControler } from "../controlers/book.controler.js";
-import { GetOneBookControler } from "../controlers/getOneBook.controler.js";
-import { NewBookControler } from "../controlers/newBook.controler.js";
-import { UpdateBookControler } from "../controlers/updateBook.controler.js";
-import { DeleteBookControler } from "../controlers/deleteBook.controler.js";
+import { BookControler } from "../controlers/Book/book.controler.js";
+import { GetOneBookControler } from "../controlers/Book/getOneBook.controler.js";
+import { NewBookControler } from "../controlers/Book/newBook.controler.js";
+import { UpdateBookControler } from "../controlers/Book/updateBook.controler.js";
+import { DeleteBookControler } from "../controlers/Book/deleteBook.controler.js";
 
 const router = new Router();
 

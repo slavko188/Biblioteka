@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { roles } from "../config/config.js";
-import roles from "../config/config.js";
+import rolesUser from "../config/config.js";
+import DEFAULT_USER_IMAGE from "../config/config.js";
 
 const UserSchema = mongoose.Schema({
   firstName: { type: String, default: "" },
@@ -10,9 +10,9 @@ const UserSchema = mongoose.Schema({
   password: { type: String, required: [true, "Password is required"] },
   gender: { type: String, default: null },
   address: { type: String, default: null },
-  role: { type: String, default: roles.USER },
+  role: { type: String, default: rolesUser.USER },
   image: { type: String, default: DEFAULT_USER_IMAGE },
   joiningDate: { type: String, default: () => new Date().getTime().toString() },
 });
 
-export const User = mongoose.model("User", UserSchema);
+export const UserModel = mongoose.model("User", UserSchema);
