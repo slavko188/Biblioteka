@@ -9,6 +9,7 @@ import ShowBook from "./pages/ShowBook.jsx";
 import EditBook from "./pages/EditBook.jsx";
 import DeleteBooks from "./pages/DeleteBooks.jsx";
 import ErrorElement from "./pages/ErrorElement.jsx";
+import SignUp from "./pages/SignUp.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/books/delete/:id",
         element: <DeleteBooks />,
+      },
+      {
+        path: "/auth/registration",
+        element: <SignUp />,
       },
     ],
   },

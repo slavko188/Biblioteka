@@ -14,7 +14,7 @@ function App() {
       mobile: "",
       email: "",
       password: "",
-      confirm: "",
+      confirmPassword: "",
       address: "",
       role: "",
       image: "",
@@ -105,7 +105,7 @@ function App() {
               <input
                 className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
                 type="password"
-                name="confirm"
+                name="confirmPassword"
                 value={formik.values.confirm}
                 onChange={formik.handleChange}
                 required
