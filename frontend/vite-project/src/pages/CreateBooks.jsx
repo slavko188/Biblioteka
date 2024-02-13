@@ -23,7 +23,6 @@ function CreateBooks() {
       .catch((err) => {
         setLoading(false);
         alert("Greska");
-        console.log(err);
       });
   };
 
