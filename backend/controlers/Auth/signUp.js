@@ -6,24 +6,28 @@ export const signUp = async (req, res) => {
   const { email, password, confirmPassword } = req.body;
   if (password === confirmPassword) {
     try {
-      let isExist = await UserModel.count({ email: email });
+      let isExist = await UserModel.findOne({ email });
       if (isExist === 0) {
         bcrypt.hash(password, saltRounds, async (err, hashPassword) => {
           if (err) {
-            res.render("error", { error: err.message });
+            res.send("error", { error: err.message });
             return;
           }
-          const newUser = new UserModel({ email, password: hashPassword });
+          const newUser = new UserModel({
+            email,
+            password: hashPassword,
+            ...req.body,
+          });
           await newUser.save();
         });
       } else {
-        res.render("error", { error: "User with this email exist" });
+        return res.status(200).send({ message: "user is successful" });
       }
-    } catch (err) {
-      console.log(err);
-      res.render("error", { err: err.message });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).send({ message: error.message });
     }
   } else {
-    res.render("Doslo je do greske");
+    res.send({ message: "Doslo je do greske" });
   }
 };
