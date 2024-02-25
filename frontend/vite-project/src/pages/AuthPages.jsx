@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import UserService from "../services/UserService.js";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
+import { loggedUser } from "../store/userSlice.js";
 
 function AuthPages() {
   const dispatch = useDispatch();
@@ -18,8 +19,6 @@ function AuthPages() {
       password: "",
       confirmPassword: "",
       address: "",
-      role: "",
-      image: "",
     },
     validationSchema: Yup.object({
       firstName: Yup.string().required("Obavezno ispuniti polje"),
@@ -29,12 +28,13 @@ function AuthPages() {
       password: Yup.string().required("Obavezno ispuniti polje"),
       confirmPassword: Yup.string().required("Obavezno ispuniti polje"),
       adress: Yup.string().required("Obavezno ispuniti polje"),
-      role: Yup.string().required("Obavezno ispuniti polje"),
     }),
     onSubmit: (values) => {
-      // const { confirmPassword, ...data } = values;
       UserService.signUpUser(values)
-        .then((res) => console.log(res))
+        .then((res) => {
+          console.log(res);
+          dispatch(loggedUser(res.data));
+        })
         .catch((err) => console.log(err));
       navigate("/home");
 
@@ -138,13 +138,7 @@ function AuthPages() {
                 onChange={formik.handleChange}
               />
             </div>
-            <div className="w-full flex items-center justify-between px-3 mb-3 ">
-              <div className="w-1/2 text-right">
-                <a href="#" className="text-blue-500 text-sm tracking-tight">
-                  Forget your password?
-                </a>
-              </div>
-            </div>
+
             <div className="w-full md:w-full px-3 mb-6">
               <button
                 className="appearance-none block w-full bg-blue-600
